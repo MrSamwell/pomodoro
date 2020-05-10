@@ -47,19 +47,25 @@ new Vue({
             
             return `${minutes}:${seconds}`
          },
-         btnPlayClicked: function(){
-             this.isPlaying = !this.isPlaying;
-             this.startTimer();
-         },
-         startTimer: function() {
-             while(this.isPlaying){
-                 setTimeout(this.startTimer, 1000);
-                 this.displayTime -= 1;  
-             }
-         },
-        mounted: function(){
-           
-           
+        btnPlayClicked: function(){
+            this.isPlaying = !this.isPlaying;
+            
+        },
+        playTimer: function(){
+          
+            setInterval(() => {
+                if(this.isPlaying){
+
+                    console.log(this.displayTime);
+                    this.displayTime -= 1;
+                    console.log(this.displayTime); 
+                }
+                }, 1000);
+             
+
         }
+    },
+    mounted: function(){
+        this.playTimer();
     }
 })
