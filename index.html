@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br" class="has-background-dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>DuckDev</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="mine.css">
+  <!-- <link rel="stylesheet" href="debug.css"> -->
+</head>
+<body>
+<div id="app" >
+    <section v-if="display">
+             <div class="space"></div>
+             <div class="space"></div>
+             
+
+            <!-- O CIRCULO -->
+            <div class="circle-stroke pulse">
+                <div class="inner-circle has-text-light">00:00</div>
+            </div>
+            <!-- O CIRCULO -->
+            <div class="minispace"></div>
+            <div class="minicircles-container">
+                <div class="minicircles"></div>
+                <div class="minicircles"></div>
+                <div class="minicircles"></div>
+                <div class="minicircles"></div>
+            </div>
+            <div class="space"></div>
+            
+
+            <div class="buttons-container">
+                <div class="btn btn-small has-background-danger has-text-dark">
+                    <i class="fas fa-redo"></i>
+                </div>
+                <div class="btn btn-big has-background-danger has-text-dark">
+                    <i class="fas fa-2x fa-play"></i>
+                </div>
+                <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
+                    <i class="fas fa-cog" ></i>
+                </div>
+            </div>
+    </section>
+
+    <section v-if="!display" class="section2">
+        
+        <h2>Configurações</h3>
+            <div class="space"></div>
+        <div class="slider-container" style="text-align: center;">
+            <h4 style="text-align: center;">Work</h4>
+            <h4 style="text-align: center;">{{worktime}} </h4>
+            <input v-model="worktime" class="slider" type="range" min="1" max="60" value="25">           
+        </div>
+        <div class="slider-container" style="text-align: center;">
+            <h4 style="text-align: center;">Short Break</h4>
+            <h4 style="text-align: center;">{{shortbreak}} min</h4>
+            <input v-model="shortbreak" class="slider" type="range" min="1" max="60" value="5">           
+        </div>
+        <div class="slider-container" style="text-align: center;">
+            <h4 style="text-align: center;">Long Break</h4>
+            <h4 style="text-align: center;">{{longbreak}} min</h4>
+            <input v-model="longbreak" class="slider" type="range" min="1" max="60" value="25">           
+        </div>
+
+        <div class="buttons-container2">
+            <span class="button-cancel" @click="changeDisplay()">Cancel</span>
+            <span class="button-apply" @click="changeDisplay()">Apply</span>
+        </div>
+    </section>
+</div>
+<script src="main.js"></script>
+</body> 
+</html>
