@@ -19,7 +19,7 @@
 
             <!-- O CIRCULO -->
             <div class="circle-stroke" v-bind:class="{pulse: isPlaying}">
-                <div class="inner-circle has-text-light">00:00</div>
+                <div class="inner-circle has-text-light">{{formatDisplay(displayTime)}}</div>
             </div>
             <!-- O CIRCULO -->
             <div class="minispace"></div>
@@ -36,7 +36,7 @@
                 <div class="btn btn-small has-background-danger has-text-dark">
                     <i class="fas fa-redo"></i>
                 </div>
-                <div class="btn btn-big has-background-danger has-text-dark" @click="isPlaying = !isPlaying">
+                <div class="btn btn-big has-background-danger has-text-dark" @click="btnPlayClicked()">
                     <i class="fas fa-2x fa-play" style="margin: 0 3px;" ></i>
                 </div>
                 <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
