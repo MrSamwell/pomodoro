@@ -1,6 +1,7 @@
 .section2{
     color: #F5F5F5;
     padding: 20px;
+    animation: slideInFromRight 0.15s ease-in;
 }
 h2{
     margin-left: 20px;
@@ -33,7 +34,7 @@ h2{
 .buttons-container{
    width: 100%;
    text-align: center;
-   position: fixed;
+   position: absolute;
    bottom: 30px;
 }
 .btn-small{
@@ -53,7 +54,7 @@ h2{
     border-radius: 50%;
     text-align: center;
     margin: 30px;
-    padding: 16px 18px;
+    padding: 16px 19px;
     display: inline-block;
 }
 
@@ -106,7 +107,14 @@ h2{
 		box-shadow: 0 0 0 0 rgba(260, 260, 260, 0);
 	}
 }
-
+@keyframes slideInFromRight {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
 @keyframes pulse2 {
 	0% {
 		transform: scale(0.95);

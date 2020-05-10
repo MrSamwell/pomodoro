@@ -32,13 +32,24 @@
             <div class="space"></div>
             
 
-            <div class="buttons-container">
+            <div class="buttons-container" v-show="!isPlaying">
                 <div class="btn btn-small has-background-danger has-text-dark">
                     <i class="fas fa-redo"></i>
                 </div>
                 <div class="btn btn-big has-background-danger has-text-dark" @click="isPlaying = !isPlaying">
-                    <i class="fas fa-2x fa-play" style="margin: 0 4px;" v-if="!isPlaying"></i>
-                    <i class="fas fa-2x fa-pause" v-else ></i>
+                    <i class="fas fa-2x fa-play" style="margin: 0 3px;" ></i>
+                </div>
+                <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
+                    <i class="fas fa-cog" ></i>
+                </div>
+            </div>
+
+            <div class="buttons-container" v-show="isPlaying">
+                <div class="btn btn-small has-background-danger has-text-dark">
+                    <i class="fas fa-redo"></i>
+                </div>
+                <div class="btn btn-big has-background-danger has-text-dark" @click="isPlaying = !isPlaying">
+                    <i class="fas fa-2x fa-pause"></i>
                 </div>
                 <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
                     <i class="fas fa-cog" ></i>
