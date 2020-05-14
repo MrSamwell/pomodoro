@@ -33,25 +33,25 @@
             
 
             <div class="buttons-container" v-show="!isPlaying">
-                <div class="btn btn-small has-background-danger has-text-dark">
+                <div class="btn btn-small background-primary has-text-dark">
                     <i class="fas fa-redo"></i>
                 </div>
-                <div class="btn btn-big has-background-danger has-text-dark" @click="btnPlayClicked()">
+                <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
                     <i class="fas fa-2x fa-play" style="margin: 0 3px;" ></i>
                 </div>
-                <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
+                <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
                     <i class="fas fa-cog" ></i>
                 </div>
             </div>
 
             <div class="buttons-container" v-show="isPlaying">
-                <div class="btn btn-small has-background-danger has-text-dark">
+                <div class="btn btn-small background-primary has-text-dark">
                     <i class="fas fa-redo"></i>
                 </div>
-                <div class="btn btn-big has-background-danger has-text-dark" @click="isPlaying = !isPlaying">
+                <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
                     <i class="fas fa-2x fa-pause"></i>
                 </div>
-                <div class="btn btn-small has-background-danger has-text-dark" @click="changeDisplay()">
+                <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
                     <i class="fas fa-cog" ></i>
                 </div>
             </div>

@@ -1,3 +1,16 @@
+*{
+    transition: 0.35s;
+}
+
+body{
+    --primary: #FF3860;
+    /* --primary: #209CEE; */
+    /* --primary: #48C774; */
+}
+
+.background-primary{
+    background-color: var(--primary);
+}
 .section2{
     color: #F5F5F5;
     padding: 20px;
@@ -29,7 +42,7 @@ h2{
 .mc-completed{
     width: 12px;
     height: 12px;
-    background-color: #FF3860;
+    background-color: var(--primary);
 }
 .buttons-container{
    width: 100%;
@@ -63,7 +76,7 @@ h2{
     height: 250px;
     width: 250px;
     border-radius: 50%;
-    border: 5px solid #FF3860;
+    border: 5px solid var(--primary);
    
     margin: auto auto;
     
@@ -94,7 +107,7 @@ h2{
 @keyframes pulse {
 	0% {
 		transform: scale(0.95);
-		box-shadow: 0 0 0 0 #FF3860;
+		box-shadow: 0 0 0 0 var(--primary);
 	}
 
 	70% {
@@ -155,7 +168,7 @@ h2{
     width: 12px;
     height: 12px;
     border-radius: 50%; 
-    background: #FF3860;
+    background: var(--primary);
     
     cursor: pointer;
   }
@@ -181,7 +194,7 @@ h2{
       background-color: #363636;
   }
   .button-apply{
-      background-color: #FF3860;
+      background-color:var(--primary);
       color:#F5F5F5;
       height: 50px;
       width: 50%;

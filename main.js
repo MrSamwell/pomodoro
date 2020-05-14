@@ -3,13 +3,16 @@ new Vue({
     data: {
         display: true,
         isPlaying: false,
+
         st_worktime: 25,
         st_shortbreak: 5,
         st_longbreak: 25,
-        worktime: 25,
-        shortbreak: 5,
-        longbreak: 25,
-        displayTime: false
+
+        worktime: 3,
+        shortbreak: 3,
+        longbreak: 3,
+        displayTime: 0
+        
     },
     methods:{
         changeDisplay: function(){
@@ -32,9 +35,7 @@ new Vue({
             // console.log(`Worktime: ${this.worktime }, Shortbreak: ${this.shortbreak}, LongBreak ${this.st_longbreak}`);
          },
          formatDisplay: function(sec){
-             if(this.displayTime == ''){
-            this.displayTime = this.worktime * 60;}
-
+           
             var minutes = Math.floor(sec/60);
             var seconds = sec%60;
 
@@ -47,25 +48,12 @@ new Vue({
             
             return `${minutes}:${seconds}`
          },
-        btnPlayClicked: function(){
-            this.isPlaying = !this.isPlaying;
+         
+        mounted: function(){
+        
+            this.displayTime = 3;
             
-        },
-        playTimer: function(){
-          
-            setInterval(() => {
-                if(this.isPlaying){
-
-                    console.log(this.displayTime);
-                    this.displayTime -= 1;
-                    console.log(this.displayTime); 
-                }
-                }, 1000);
-             
-
         }
-    },
-    mounted: function(){
-        this.playTimer();
+            
     }
 })
