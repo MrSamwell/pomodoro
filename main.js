@@ -115,6 +115,7 @@ new Vue({
                                         workInterval = setInterval(workTimer ,1000);
                                     }
                                     else{
+                                        vm.$refs.completed.play();
                                         vm.isPlaying = !vm.isPlaying;
                                     }
 
