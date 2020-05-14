@@ -81,11 +81,11 @@ new Vue({
                             clearInterval(workInterval);
                             if(vm.counter == 3){
                                 root.style.setProperty('--primary', "#48C774");
-                                vm.displayTime = vm.longbreak;
+                                vm.displayTime = vm.longbreak *60;
                             }
                             else{
                                 root.style.setProperty('--primary', "#209CEE");
-                                vm.displayTime = vm.shortbreak;
+                                vm.displayTime = vm.shortbreak *60;
                             }
                             breakInterval = setInterval(breakTimer,1000);
                         } 
@@ -110,7 +110,7 @@ new Vue({
                                     if(vm.counter <4){
                                         vm.$refs.start.play();
                                         root.style.setProperty('--primary', "#FF3860");
-                                        vm.displayTime = vm.worktime;
+                                        vm.displayTime = vm.worktime *60;
                                         clearInterval(breakInterval);
                                         workInterval = setInterval(workTimer ,1000);
                                     }
@@ -150,7 +150,7 @@ new Vue({
          
         mounted: function(){
         
-            this.displayTime = this.worktime;
+            this.displayTime = this.worktime *60;
             
         }
             
