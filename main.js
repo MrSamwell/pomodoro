@@ -8,9 +8,9 @@ new Vue({
         st_shortbreak: 5,
         st_longbreak: 25,
 
-        worktime: 3,
-        shortbreak: 3,
-        longbreak: 5,
+        worktime: 25,
+        shortbreak: 5,
+        longbreak: 25,
         displayTime: 0,
         counter: 0
         
@@ -150,7 +150,7 @@ new Vue({
          
         mounted: function(){
         
-            this.displayTime = 3;
+            this.displayTime = this.worktime;
             
         }
             
