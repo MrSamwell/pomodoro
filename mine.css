@@ -1,11 +1,8 @@
 *{
     transition: 0.35s;
 }
-
-body{
+html{
     --primary: #FF3860;
-    /* --primary: #209CEE; */
-    /* --primary: #48C774; */
 }
 
 .background-primary{
@@ -39,7 +36,7 @@ h2{
     display: inline-block;
     margin: 24px;
 }
-.mc-completed{
+.completed{
     width: 12px;
     height: 12px;
     background-color: var(--primary);

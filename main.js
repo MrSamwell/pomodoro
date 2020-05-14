@@ -10,8 +10,9 @@ new Vue({
 
         worktime: 3,
         shortbreak: 3,
-        longbreak: 3,
-        displayTime: 0
+        longbreak: 5,
+        displayTime: 0,
+        counter: 0
         
     },
     methods:{
@@ -35,6 +36,8 @@ new Vue({
             // console.log(`Worktime: ${this.worktime }, Shortbreak: ${this.shortbreak}, LongBreak ${this.st_longbreak}`);
          },
          formatDisplay: function(sec){
+
+            
            
             var minutes = Math.floor(sec/60);
             var seconds = sec%60;
@@ -48,6 +51,101 @@ new Vue({
             
             return `${minutes}:${seconds}`
          },
+
+         startTimer: function(){
+           
+            
+             this.isPlaying = !this.isPlaying;
+             if(this.counter == 4){
+                this.counter = 0;
+                this.displayTime = this.worktime;
+                
+                document.documentElement.style.setProperty('--primary', "#FF3860");
+
+             } 
+            
+            var vm = this;
+            var root = document.documentElement;
+           
+           
+                if(vm.isPlaying){
+                    var workInterval = setInterval(workTimer ,1000);
+                    var breakInterval;
+                
+            }
+
+            function workTimer(){
+                    if(vm.isPlaying){
+                        if(vm.displayTime == 0){
+                            vm.$refs.end.play();
+                            clearInterval(workInterval);
+                            if(vm.counter == 3){
+                                root.style.setProperty('--primary', "#48C774");
+                                vm.displayTime = vm.longbreak;
+                            }
+                            else{
+                                root.style.setProperty('--primary', "#209CEE");
+                                vm.displayTime = vm.shortbreak;
+                            }
+                            breakInterval = setInterval(breakTimer,1000);
+                        } 
+                        else{
+
+                            vm.displayTime -=1;
+                            
+                        }
+                    }
+                    else{
+                        clearInterval(workInterval);
+                    }
+            }
+
+            function breakTimer(){
+                if(vm.isPlaying){
+
+                                if(vm.displayTime == 0){
+                                    
+                                    clearInterval(breakInterval);
+                                    vm.counter++;
+                                    if(vm.counter <4){
+                                        vm.$refs.start.play();
+                                        root.style.setProperty('--primary', "#FF3860");
+                                        vm.displayTime = vm.worktime;
+                                        clearInterval(breakInterval);
+                                        workInterval = setInterval(workTimer ,1000);
+                                    }
+                                    else{
+                                        vm.isPlaying = !vm.isPlaying;
+                                    }
+
+                                } 
+                                else{
+                                    vm.displayTime -=1;
+                                    
+                                }
+                    }
+                    else{
+                        clearInterval(breakInterval);
+                    }
+                }
+
+         },
+         isCompleted: function(index){
+            if(index < this.counter){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+         
+         
+    },
+
+    watch: {
+        
+
+    },
          
         mounted: function(){
         
@@ -55,5 +153,5 @@ new Vue({
             
         }
             
-    }
+    
 })
