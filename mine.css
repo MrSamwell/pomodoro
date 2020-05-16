@@ -5,6 +5,11 @@ html{
     --primary: #FF3860;
 }
 
+html{
+    background-image: url(img/bg.png);
+    
+}
+
 
 .background-primary{
     background-color: var(--primary);
@@ -47,6 +52,7 @@ h2{
    text-align: center;
    position: absolute;
    bottom: 30px;
+   background-image:transparent;
 }
 .btn-small{
     height: 32px;
@@ -185,12 +191,12 @@ h2{
       margin: auto;
   }
 
-  .buttons-container2{
+  .buttons-container{
       position: fixed;
-      bottom: 30px;
+      bottom: 10px;
       width: 100%;
       padding:20px;
-      background-color: #363636;
+      
   }
   .button-apply{
       background-color:var(--primary);
@@ -208,4 +214,10 @@ h2{
       text-align: center;
       width: 40%;
       display: inline-block;
+  }
+
+  @media only screen and (min-width: 768px){
+    .minicircles-container{
+        margin: 50px 0 ;
+    }
   }

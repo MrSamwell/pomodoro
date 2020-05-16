@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" class="has-background-dark">
+<html lang="pt-br" class="has-background-dark is-bold">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,57 +16,64 @@
         <audio src="sounds/start.mp3" ref="start" type="audio/mpeg"></audio>
         <audio src="sounds/allcompleted.mp3" ref="completed" type="audio/mpeg"></audio>
     <section v-if="display">
-             <div class="space"></div>
-             <div class="space"></div>
+            <div class="space"></div>
+             <div class="header has-text-centered"><h1 class="title has-text-light is-size-4 has-text-weight-light" style="letter-spacing: 0.15rem;">Pomodoro Clock</h1></div>
+             <div class="minispace"></div>
+             <div class="minispace"></div>
              
 
-            <!-- O CIRCULO -->
-            <div class="circle-stroke" v-bind:class="{pulse: isPlaying}">
-                <div class="inner-circle has-text-light">{{formatDisplay(displayTime)}}</div>
-            </div>
-            <!-- O CIRCULO -->
-            <div class="minispace"></div>
-            <div class="minicircles-container">
-                <div class="minicircles" :class="{completed: isCompleted(0)}"></div>
-                <div class="minicircles" :class="{completed: isCompleted(1)}"></div>
-                <div class="minicircles" :class="{completed: isCompleted(2)}"></div>
-                <div class="minicircles" :class="{completed: isCompleted(3)}"></div>
-                
-            </div>
-            
-            <div class="space"></div>
-            
+             <div class="timer">
 
-            <div class="buttons-container">
-                <div class="btn btn-small background-primary has-text-dark">
-                    <i class="fas fa-redo"></i>
-                </div>
-                <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
-                    <span v-show="!isPlaying">
-                        <i class="fas fa-2x fa-play" style="margin: 0 3px;"></i>
-                    </span>
-                    <span v-show="isPlaying">
-                        <i class="fas fa-2x fa-pause"></i>
-                    </span>
-                    <!-- <i class="fas fa-2x fa-pause" v-show="isPlaying"></i> -->
-                </div>
-                <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
-                    <i class="fas fa-cog" ></i>
-                </div>
-            </div>
+                 <!-- O CIRCULO -->
+                 <div class="circle-stroke" v-bind:class="{pulse: isPlaying}">
+                     <div class="inner-circle has-text-light">{{formatDisplay(displayTime)}}</div>
+                 </div>
+                 <!-- O CIRCULO -->
+                 
+                 <div class="minicircles-container">
+                     <div class="minicircles" :class="{completed: isCompleted(0)}"></div>
+                     <div class="minicircles" :class="{completed: isCompleted(1)}"></div>
+                     <div class="minicircles" :class="{completed: isCompleted(2)}"></div>
+                     <div class="minicircles" :class="{completed: isCompleted(3)}"></div>
+                     
+                 </div>
+                 
+                 <div class="space"></div>
+                 
+     
+                 <div class="buttons-container">
+                     <div class="btn btn-small background-primary has-text-dark" @click="resetTimer">
+                         <i class="fas fa-redo"></i>
+                     </div>
+                     <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
+                         <span v-show="!isPlaying">
+                             <i class="fas fa-2x fa-play" style="margin: 0 3px;"></i>
+                         </span>
+                         <span v-show="isPlaying">
+                             <i class="fas fa-2x fa-pause"></i>
+                         </span>
+                         <!-- <i class="fas fa-2x fa-pause" v-show="isPlaying"></i> -->
+                     </div>
+                     <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
+                         <i class="fas fa-cog" ></i>
+                     </div>
+                 </div>
+             </div>
+ 
+             <!-- <div class="buttons-container" >
+                 <div class="btn btn-small background-primary has-text-dark">
+                     <i class="fas fa-redo"></i>
+                 </div>
+                 <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
+                     <i class="fas fa-2x fa-pause"></i>
+                 </div>
+                 <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
+                     <i class="fas fa-cog" ></i>
+                 </div>
+             </div> -->
+     </section>
+             
 
-            <!-- <div class="buttons-container" >
-                <div class="btn btn-small background-primary has-text-dark">
-                    <i class="fas fa-redo"></i>
-                </div>
-                <div class="btn btn-big background-primary has-text-dark" @click="startTimer()">
-                    <i class="fas fa-2x fa-pause"></i>
-                </div>
-                <div class="btn btn-small background-primary has-text-dark" @click="changeDisplay()">
-                    <i class="fas fa-cog" ></i>
-                </div>
-            </div> -->
-    </section>
 
     <section v-if="!display" class="section2">
         
