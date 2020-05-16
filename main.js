@@ -25,6 +25,8 @@ new Vue({
            this.shortbreak = this.st_shortbreak;
            this.longbreak = this.st_longbreak;
            this.displayTime = this.worktime * 60;
+
+           this.resetTimer();
         //    console.log(`Worktime: ${this.worktime }, Shortbreak: ${this.shortbreak}, LongBreak ${this.st_longbreak}`);
         },
         cancelChanges: function(){
@@ -87,6 +89,7 @@ new Vue({
                                 root.style.setProperty('--primary', "#209CEE");
                                 vm.displayTime = vm.shortbreak *60;
                             }
+                            vm.$refs.header.innerHtml = 'blue';
                             breakInterval = setInterval(breakTimer,1000);
                         } 
                         else{
@@ -130,6 +133,11 @@ new Vue({
                     }
                 }
 
+         },
+         resetTimer: function(){
+             this.isPlaying = false;
+            this.displayTime = this.worktime * 60;
+            this.counter = 0;
          },
          isCompleted: function(index){
             if(index < this.counter){
